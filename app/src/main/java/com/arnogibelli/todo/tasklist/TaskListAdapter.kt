@@ -12,6 +12,7 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
 
     var currentList: List<Task> = emptyList()
     var onClickDelete: (Task) -> Unit = {}
+    var onClickEdit: (Task) -> Unit = {}
 
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(task: Task) {
@@ -23,7 +24,10 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.TaskViewHolder>() {
             buttondeleted.setOnClickListener{
                 onClickDelete(task)
             }
-
+            val buttondedit = itemView.findViewById<ImageButton>(R.id.imageButton3)
+                buttondedit.setOnClickListener{
+                    onClickEdit(task)
+                }
 
         }
     }
