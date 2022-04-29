@@ -2,8 +2,10 @@ package com.arnogibelli.todo.network
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import retrofit2.Response
+import retrofit2.http.GET
 
-class UserInfo {
+
     @Serializable
     data class UserInfo(
         @SerialName("email")
@@ -11,6 +13,6 @@ class UserInfo {
         @SerialName("firstname")
         val firstName: String,
         @SerialName("lastname")
-        val lastName: String
-    )
-}
+        val lastName: String="") : java.io.Serializable
+
+

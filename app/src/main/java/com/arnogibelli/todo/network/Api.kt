@@ -9,8 +9,14 @@ import retrofit2.Retrofit
 
 object Api {
     private const val TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3MjcsImV4cCI6MTY4MjY5NTU3OH0.Dxapp_dHZGUegBfIYaJO55HmG7xI9nTQC3n3kktES4w"
+    val userWebService : UserWebService by lazy {
+        retrofit.create(UserWebService::class.java)
+    }
+    val taskWebService : TaskWebService by lazy {
+        retrofit.create(TaskWebService::class.java)
+    }
 
-    private val retrofit by lazy {
+     val retrofit by lazy {
         // client HTTP
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
